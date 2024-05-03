@@ -53,7 +53,6 @@ class Queen(Piece):
         '''
         checks if this queen can move to coordinates pos_X, pos_Y
         on board B according to rule [Rule1] and [Rule3] (see section Intro)
-        Hint: use is_piece_at
         '''
         from_col = self.pos_x
         from_row = self.pos_y
@@ -198,7 +197,6 @@ class King(Piece):
 def is_check(side: bool, B: Board) -> bool:
     '''
     checks if configuration of B is check for side
-    Hint: use can_reach
     '''
     for p in B[1]:
         if isinstance(p,King) and (side == p.side):
@@ -211,10 +209,6 @@ def is_check(side: bool, B: Board) -> bool:
 def is_checkmate(side: bool, B: Board) -> bool:
     '''
     checks if configuration of B is checkmate for side
-
-    Hints: 
-    - use is_check
-    - use can_move_to
     '''
     if is_check(side, B):
         for p in B[1]:
@@ -229,10 +223,6 @@ def is_checkmate(side: bool, B: Board) -> bool:
 def is_stalemate(side: bool, B: Board) -> bool:
     '''
     checks if configuration of B is stalemate for side
-
-    Hints: 
-    - use is_check
-    - use can_move_to 
     '''
     if is_check(side, B)==False:
         for p in B[1]:
@@ -331,10 +321,6 @@ def find_black_move(B: Board) -> tuple[Piece, int, int]:
     '''
     returns (P, x, y) where a Black piece P can move on B to coordinates x,y according to chess rules 
     assumes there is at least one black piece that can move somewhere
-
-    Hints: 
-    - use methods of random library
-    - use can_move_to
     '''
     import random
     isTraversing = True
@@ -377,10 +363,6 @@ def conf2unicode(B: Board) -> str:
 def main() -> None:
     '''
     runs the play
-
-    Hint: implementation of this could start as follows:
-    filename = input("File name for initial configuration: ")
-    ...
     '''   
     #Initiation
     isFileCorrect = False
